@@ -2,7 +2,6 @@
 //Routing and logic for accessing the Zendesk ticket API
 require('dotenv').config()
 const ticketRouter = require('express').Router()
-
 let pages = "https://ticketviewer.zendesk.com/api/v2/incremental/tickets/cursor.json?per_page=25&start_time=1332034771"
 let nextPage = pages
 const count = 'https://ticketviewer.zendesk.com/api/v2/tickets/count.json'
@@ -65,7 +64,7 @@ ticketRouter.get('/count', (request, response) => {
             password: process.env.ZendeskPassword
 
         }
-    }).then(res => { console.log(res.data.count.value), response.json(res.data.count.value) })
+    }).then(res => {  response.json(res.data.count.value) })
         .catch(err => { response.status(500).json({ error: `failed to get ticket count ${err} ` }) })
 })
 
