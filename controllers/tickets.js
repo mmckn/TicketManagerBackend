@@ -17,7 +17,7 @@ const cursorThroughPages = (i, pageRequested, response) => {
             axios.get(nextPage, {
                 auth: {
                     username: process.env.zendeskAccount,
-                    password: process.env.ZendeskPassword
+                    password: process.env.zendeskPassword
                 }
 
             }).then(res => {
@@ -35,7 +35,7 @@ const cursorThroughPages = (i, pageRequested, response) => {
          
             auth: {
                 username: process.env.zendeskAccount,
-                password: process.env.ZendeskPassword
+                password: process.env.zendeskPassword
 
             }
         })
@@ -61,7 +61,7 @@ ticketRouter.get('/count', (request, response) => {
       
         auth: {
             username: process.env.zendeskAccount,
-            password: process.env.ZendeskPassword
+            password: process.env.zendeskPassword
 
         }
     }).then(res => {  response.json(res.data.count.value) })
@@ -76,7 +76,7 @@ ticketRouter.get('/id/:id', (request, response) => {
     axios.get(searchURL, {
         auth: {
             username: process.env.zendeskAccount,
-            password: process.env.ZendeskPassword
+            password: process.env.zendeskPassword
         }
     })
     .then(res => { response.json(res.data) })
